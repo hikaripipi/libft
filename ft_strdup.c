@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_inprint.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hshinaga <hshinaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 21:31:30 by hshinaga          #+#    #+#             */
-/*   Updated: 2024/11/02 14:25:04 by hshinaga         ###   ########.fr       */
+/*   Created: 2024/11/02 15:32:09 by hshinaga          #+#    #+#             */
+/*   Updated: 2024/11/02 15:35:30 by hshinaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-int	ft_isprint(int c)
+int	main(void)
 {
-	return (c >= 32 && c <= 126);
+	const char	*test = "Hello, World!";
+	char		*dup;
+	const char	*empty = "";
+	char		*empty_dup;
+
+	dup = ft_strdup(test);
+	printf("Original: %s\n", test);
+	printf("Duplicate: %s\n", dup);
+	free(dup);
+	empty_dup = ft_strdup(empty);
+	printf("Empty Original: '%s'\n", empty);
+	printf("Empty Duplicate: '%s'\n", empty_dup);
+	free(empty_dup);
+	return (0);
 }

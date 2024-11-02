@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_inprint.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hshinaga <hshinaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 21:31:30 by hshinaga          #+#    #+#             */
-/*   Updated: 2024/11/02 14:25:04 by hshinaga         ###   ########.fr       */
+/*   Created: 2024/11/02 14:58:13 by hshinaga          #+#    #+#             */
+/*   Updated: 2024/11/02 15:05:06 by hshinaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	return (c >= 32 && c <= 126);
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)s;
+	while (n > 0)
+	{
+		*ptr = (unsigned char)c;
+		ptr++;
+		n--;
+	}
+	return (s);
 }
