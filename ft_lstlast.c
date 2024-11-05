@@ -1,26 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hshinaga <hshinaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/02 15:32:09 by hshinaga          #+#    #+#             */
-/*   Updated: 2024/11/05 17:44:45 by hshinaga         ###   ########.fr       */
+/*   Created: 2024/11/05 18:08:59 by hshinaga          #+#    #+#             */
+/*   Updated: 2024/11/05 18:09:00 by hshinaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strdup(const char *s1)
-{
-	char	*dup;
-	size_t	len;
-
-	len = ft_strlen(s1);
-	dup = (char *)malloc(len + 1);
-	if (!dup)
-		return (NULL);
-	ft_strlcpy(dup, s1, len + 1);
-	return (dup);
-}

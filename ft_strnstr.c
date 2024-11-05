@@ -6,7 +6,7 @@
 /*   By: hshinaga <hshinaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 22:08:05 by hshinaga          #+#    #+#             */
-/*   Updated: 2024/11/04 17:18:38 by hshinaga         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:47:37 by hshinaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (!big || !little)
+	if (len == 0 && !big)
 		return (NULL);
 	if (little[0] == '\0')
 		return ((char *)big);

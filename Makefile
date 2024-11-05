@@ -6,7 +6,7 @@
 #    By: hshinaga <hshinaga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 15:37:41 by hshinaga          #+#    #+#              #
-#    Updated: 2024/11/04 19:54:17 by hshinaga         ###   ########.fr        #
+#    Updated: 2024/11/05 18:05:19 by hshinaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,26 +49,40 @@ SRCS = ft_isalpha.c \
        ft_putendl_fd.c \
        ft_putnbr_fd.c
 
+BONUS_SRCS = ft_lstnew.c \
+       ft_lstadd_front.c \
+       ft_lstsize.c \
+       ft_lstlast.c \
+       ft_lstadd_back.c \
+       ft_lstdelone.c \
+       ft_lstclear.c \
+       ft_lstiter.c \
+       ft_lstmap.c
+
 OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+   ar rcs $(NAME) $(OBJS)
 
 %.o: %.c libft.h
-	$(CC) $(CFLAGS) -c $< -o $@
+   $(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+   rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+   rm -f $(NAME)
 
 re: fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+bonus: $(OBJS) $(BONUS_OBJS)
+   ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
-.PHONY: all clean fclean re
+so:
+   $(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+   gcc -nostartfiles -shared -o libft.so $(OBJS)
+
+.PHONY: all clean fclean re bonus

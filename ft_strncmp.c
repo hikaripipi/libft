@@ -6,7 +6,7 @@
 /*   By: hshinaga <hshinaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 21:38:14 by hshinaga          #+#    #+#             */
-/*   Updated: 2024/11/04 16:40:15 by hshinaga         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:42:39 by hshinaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ int	ft_strncmp(const char *str1, const char *str2, size_t len)
 	size_t			i;
 	unsigned char	c1;
 	unsigned char	c2;
-	
+
 	i = 0;
 	if (len == 0)
-		return (0);
-	if (!str1 || !str2)
 		return (0);
 	while (i < len - 1)
 	{

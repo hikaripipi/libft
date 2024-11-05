@@ -6,7 +6,7 @@
 /*   By: hshinaga <hshinaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 20:58:03 by hshinaga          #+#    #+#             */
-/*   Updated: 2024/11/04 16:29:24 by hshinaga         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:40:00 by hshinaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strrchr(const char *str, int c)
 
 	last = NULL;
 	target = (char)c;
-	if (!str)
-		return (NULL);
 	while (*str)
 	{
 		if (*str == target)
@@ -31,3 +29,4 @@ char	*ft_strrchr(const char *str, int c)
 		return ((char *)str);
 	return ((char *)last);
 }
+ 
