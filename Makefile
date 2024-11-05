@@ -6,7 +6,7 @@
 #    By: hshinaga <hshinaga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 15:37:41 by hshinaga          #+#    #+#              #
-#    Updated: 2024/11/05 18:05:19 by hshinaga         ###   ########.fr        #
+#    Updated: 2024/11/05 22:59:03 by hshinaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,24 +65,22 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-   ar rcs $(NAME) $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c libft.h
-   $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-   rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-   rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-bonus: $(OBJS) $(BONUS_OBJS)
-   ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 so:
-   $(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-   gcc -nostartfiles -shared -o libft.so $(OBJS)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY: all clean fclean re bonus
