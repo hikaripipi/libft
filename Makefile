@@ -6,7 +6,7 @@
 #    By: hshinaga <hshinaga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 15:37:41 by hshinaga          #+#    #+#              #
-#    Updated: 2024/11/02 20:07:49 by hshinaga         ###   ########.fr        #
+#    Updated: 2024/11/04 19:54:17 by hshinaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,5 +66,9 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY: all clean fclean re

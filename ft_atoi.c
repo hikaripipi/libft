@@ -6,7 +6,7 @@
 /*   By: hshinaga <hshinaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 15:26:37 by hshinaga          #+#    #+#             */
-/*   Updated: 2024/11/02 15:28:35 by hshinaga         ###   ########.fr       */
+/*   Updated: 2024/11/05 00:38:29 by hshinaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,17 @@ int	ft_atoi(const char *str)
 	while (ft_isspace(*str))
 		str++;
 	if (*str == '-' || *str == '+')
-		if (*str++ == '-')
+	{
+		if (*str == '-')
 			sign = -1;
+		str++;
+	}
 	while (*str >= '0' && *str <= '9')
 	{
-		result = result * 10 + (*str++ - '0');
+		result = result * 10 + (*str - '0');
 		if (ft_check_overflow(result, sign) != 1)
 			return (ft_check_overflow(result, sign));
+		str++;
 	}
 	return ((int)(result * sign));
 }

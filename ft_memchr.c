@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_memchr.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hshinaga <hshinaga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 15:20:57 by hshinaga          #+#    #+#             */
-/*   Updated: 2024/11/02 15:21:18 by hshinaga         ###   ########.fr       */
+/*   Updated: 2024/11/04 19:31:06 by hshinaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char	*p = s;
-	unsigned char		uc;
+	const unsigned char	*memory;
+	unsigned char		target;
+	size_t				i;
 
-	uc = c;
-	while (n--)
+	memory = (const unsigned char *)s;
+	target = (unsigned char)c;
+	i = 0;
+	while (i < n)
 	{
-		if (*p == uc)
-			return ((void *)p);
-		p++;
+		if (memory[i] == target)
+			return ((void *)&memory[i]);
+		i++;
 	}
 	return (NULL);
 }
