@@ -6,7 +6,7 @@
 #    By: hshinaga <hshinaga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/02 15:37:41 by hshinaga          #+#    #+#              #
-#    Updated: 2024/11/06 00:05:25 by hshinaga         ###   ########.fr        #
+#    Updated: 2024/11/06 02:57:19 by hshinaga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,22 +68,22 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
+bonus: .bonus
+
+.bonus: $(OBJS) $(BONUS_OBJS)
 	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+	touch .bonus
 
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f .bonus
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
-
-.PHONY: all clean fclean re bonus so
+.PHONY: all clean fclean re bonus
